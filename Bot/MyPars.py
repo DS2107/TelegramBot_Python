@@ -8,7 +8,7 @@ HEADERS = {'User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537
 
 # соеденение и отправка запроса
 def get_html(url, params=None):
-    r = requests.get(url, params=params) #отправить get запрос
+    r = requests.get(url, params=params)
     return r
 
 
@@ -31,14 +31,12 @@ def get_content(html):
         weathersss = str('День недели: '+dayD+', Дата: '+day+', Температура '+tempD+', Температура '+tempN+', Погодные условия: '+wd)
         weather.append(weathersss)
 
-
-    print(weather)
-
-
     return weather
 
 # Парсинг
-def parse():
+
+
+def my_parse():
     html = get_html(URL)
     if html.status_code == 200: # Получаем запрос get если он 200 то Все ОК
       weather = get_content(html.text)
